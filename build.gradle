@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group 'com.github.kekolab'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+		    from components.java
+        }
+    }
+}
+
+wrapper {
+    gradleVersion = "8.6"
+    distributionType = Wrapper.DistributionType.BIN
+}
